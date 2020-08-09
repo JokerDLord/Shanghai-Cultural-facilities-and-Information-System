@@ -1,0 +1,444 @@
+﻿html, body {background-color:#FFF; width:100%; height:100%; margin:0px; padding:0px; overflow:hidden;
+	font-family:"Helvetica Neue", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;}
+div {margin:0; padding:0; border:0;}
+table, tr, td {margin:0; padding:0; border:0;} /* 2px solid blue */
+table {border-collapse:collapse; margin:auto;}
+td {text-align:left; vertical-align:middle;}
+
+div.main {height:100%; width:100%;}
+
+div.banner
+{
+	width:100%;
+	height:38px;
+	position:absolute;
+	padding:6px 0px;
+	background:#FA8072;
+}
+a.banner
+{
+	font-size:26px;
+	text-decoration:none;
+	font-weight:600;
+	color:#FFF;
+	margin-left:40px;
+	letter-spacing:10px;
+}
+a.banner:hover, a.banner:focus
+{
+	color:#B22222;
+	/* 深红色*/
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+/* 放背景图*/
+div.cover-background {
+	overflow:hidden;
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:50px;
+	bottom:0px;
+    background:url('recommend-bg.jpg');
+    background-repeat:repeat-y;
+    background-size:100% auto;
+}
+
+
+/* 用户信息输入div*/
+div.select-div
+{
+    width:90%;
+    height:auto;
+    position:relative;
+    background:rgba(250,128,114,0.1);
+    padding:10px 0px;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+div.select-content
+{
+    margin:2px 0px;
+    padding:2px 0px;
+    color:#400000;
+}
+
+span.select-content
+{
+    font-size:16px;
+    font-weight:700;
+    margin-left:20px;
+}
+
+/* 下拉选择框*/
+select.select-down {
+	position:relative;
+	height:28.8px;
+	width:160px;
+	background:#FFF;
+	font-size:16px;
+	color:#B22222;
+    border:0px solid transparent;
+    padding:0px 8px;
+    border-radius:4px;
+    display: inline-block; /*是行内元素*/
+    vertical-align: middle;
+	 /* float: left; */
+	margin:2px 8px;
+	background:url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+	background-position:right;
+	background-repeat: no-repeat;
+	/* 鼠标触碰光标变手势 */
+	cursor: pointer;
+	/* 清除默认样式 */
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+
+/* 结果div*/
+#result
+{
+    width:90%;
+    height:420px;
+    position:relative;
+    background:rgba(255,255,255,0);
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+div.result-box
+{
+    margin:0px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:5%;
+    padding-right:5%;
+    top:0;
+    left:0;
+    width:auto;
+    height:400px;
+    position:relative;
+    overflow:hidden;
+}
+
+#result-box-1-left
+{
+    position:relative;
+    float:left;
+    left:0;
+    margin:0px;
+    padding:0px;
+    width:60%;
+    height:354px;
+}
+
+#result-box-1-right
+{
+    position:relative;
+    float:right;
+    right:0;
+    margin:0px;
+    padding:0px;
+    width:40%;
+    height:354px;
+}
+
+#result-box-2-left
+{
+    position:relative;
+    float:left;
+    left:0;
+    margin:0px;
+    padding:0px;
+    width:30%;
+    height:100%;
+    vertical-align:middle;
+}
+
+#result-box-2-right
+{
+    position:relative;
+    float:right;
+    right:0;
+    margin:0px;
+    padding:0px;
+    width:70%;
+    height:100%;
+}
+
+#result-box-3-left
+{
+    position:relative;
+    float:left;
+    left:0;
+    margin:0px;
+    padding:0px;
+    width:70%;
+    height:100%;
+    vertical-align:middle;
+}
+
+#result-box-3-right
+{
+    position:relative;
+    float:right;
+    right:0;
+    margin:0px;
+    padding:0px;
+    width:30%;
+    height:100%;
+}
+
+#result-box-4-left
+{
+    position:relative;
+    float:left;
+    left:0;
+    margin:0px;
+    padding:0px;
+    width:50%;
+    height:100%;
+    vertical-align:middle;
+}
+
+#result-box-4-right
+{
+    position:relative;
+    float:right;
+    right:0;
+    margin:0px;
+    padding:0px;
+    width:50%;
+    height:100%;
+}
+
+/* box1的标题*/
+div.result-content-title
+{
+    margin:2px 0px;
+    padding:2px 0px;
+}
+span.result-title
+{
+    font-size:32px;
+    font-weight:600;
+    color:#B22222;
+}
+/* box23的文字部分，系统那句*/
+div.result-content-top1
+{
+    margin:40px 20px;
+    padding:0px;
+}
+/* box23中间的地址文字部分*/
+div.result-content-middle1
+{
+    margin:10px;
+    padding:0px;
+}
+/* box4的文字标题部分*/
+div.result-content-top2
+{
+    margin:40px 20px;
+    padding:0px;
+}
+/* box4中间的天气介绍部分*/
+div.result-content-middle2
+{
+    margin:10px 20px;
+    padding:0px;
+}
+/* 部分小标题，建筑物名*/
+span.result-subtitle
+{
+    font-size:36px;
+    font-weight:600;
+    color:#B22222;
+    vertical-align: middle;
+}
+/* 普通行文字*/
+span.result-line
+{
+    font-size:20px;
+    font-weight:500;
+    color:#400000;
+}
+
+/* 输入地址框，最外层*/
+div.input-box-out {
+    position:relative;
+    z-index:50;
+    height:30px;
+    width:auto;
+    padding:20px;
+    text-align:center;
+    vertical-align:middle;
+    background:rgba(255,255,255,1);
+    box-shadow:5px 5px 10px rgba(128,128,128,0.2);
+}
+/* 提示框*/
+div.input-box-inner {
+    position:relative;
+    float:left;
+    left:0;
+    z-index:100;
+    height:22px;
+    width:auto;
+    padding:2px 8px;
+    text-align:center;
+    vertical-align:middle;
+}
+/* 输入框*/
+input.input-box-input[type=text] {
+    position:relative;
+    float:left;
+    left:0;
+    z-index:100;
+    height:22px;
+    width:120px;
+    padding:4px 8px;
+    vertical-align:middle;
+    background:rgba(250,128,114,0.2);
+    box-shadow:-4px -4px 8px rgba(178,34,34,0.2) inset;
+    border:1px solid transparent;
+    font-size:18px;
+    font-weight:500;
+    color:#400000;
+}
+
+/* Iconfont */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  color: #400000;
+  font-size: 32px;
+}
+
+
+/* element*/
+.el-carousel__item {
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	text-align:center;
+	margin:0;
+	padding:0;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+	background-color:rgba(250,128,114,0.1);
+}
+
+.el-carousel__item:nth-child(2n) {
+	background-color:rgba(128,128,128,0.1);
+}
+
+
+/* 从华师大本科招生办官网抄的css*/
+input.sel
+{
+    display: none;
+}
+
+label.sel
+{
+    padding: 4px 8px;
+    /*margin: 4px 6px;*/
+    margin:2px 8px;
+    position: relative;
+    cursor: pointer;
+    display:inline-block;
+}
+
+input.sel[type='radio']:checked + label.sel{
+    background-color:#B22222;
+    color:#FFF;
+    border-radius: 4px;
+}
+
+input.sel[type='checkbox']:checked + label.sel{
+    background-color:#B22222;
+    color:#FFF;
+    border-radius: 4px;
+}
+
+input.select-button {
+    color:#FFF;
+    background-color:#B22222;
+    padding: 6px 12px;
+    margin:2px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    border-color:#400000;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+/* 高德路径规划API*/
+#panel1 {
+    position: fixed;
+    background-color: white;
+    max-height: 400px;
+    overflow-y: auto;
+    top: 10px;
+    right: 5%;
+    width: 280px;
+}
+#panel1 .amap-call {
+    background-color: #B22222;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#panel1 .amap-lib-driving {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: hidden;
+}
+
+#panel2 {
+    position: fixed;
+    background-color: white;
+    max-height: 400px;
+    overflow-y: auto;
+    top: 10px;
+    left: 5%;
+    width: 280px;
+}
+#panel2 .amap-call {
+    background-color: #B22222;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#panel2 .amap-lib-driving {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: hidden;
+}
+
+.marker {
+    position: absolute;
+    top: -20px;
+    right: -118px;
+    color: #fff;
+    padding: 4px 10px;
+    box-shadow: 1px 1px 1px rgba(10, 10, 10, .2);
+    white-space: nowrap;
+    font-size: 10px;
+    font-family: "";
+    background-color: #B22222;
+    border-radius: 3px;
+}

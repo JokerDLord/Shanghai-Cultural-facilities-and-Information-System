@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>上海市文娱设施与信息系统</title>
+<link rel="stylesheet" type="text/css" href="/static/content/main-ktv.css" />
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=9bb8547800b6ce739212a10cea619ea4"></script>
+<script type="text/javascript" src="/static/scripts/jquery-1.10.2.min.js"></script>
+<!-- 为了让搜索的结果能就在这一页显示 必须用到ajax要是想用AJAX来提交表单 就只能引入jQuery了 -->
+<script type="text/javascript" src="/static/scripts/main-ktv.js"></script>
+</head>
+
+<body onLoad="onLoad()">
+<div class='main'>
+
+<div class="banner">
+    <a href='./index' class="banner">上海市文娱设施与信息系统·KTV</a>
+    <div class='heatmap-button'>
+    	<input class='heatmap-button' id='heatmap-btn' onclick="window.open('https://maplab.amap.com/share/mapv/8681ac1dc2c41f35389b424c10b1f30b')" value='打开热力图'/>
+    </div>
+</div>
+
+<div id="map">
+
+<div id="search-div">
+<form method='get' id="query">
+	<div class='search-line'>
+		<span class="search-title">人均价格</span>
+		<span class="search-content">最低价</span>
+		<input name='lowPrice' id='lowPrice' type='text' class='search-text'>
+		<span class="search-content">—</span>
+		<span class="search-content">最高价</span>
+		<input name="highPrice" id='highPrice' type='text' class='search-text'>
+	</div>
+	<div class="search-line">
+		<span class="search-title">歌厅星级</span>
+		<span class='search-content'>五星</span>
+		<input name='rank5' id='checkbox-1' type='checkbox' style="display: none;"/>
+		<label for='checkbox-1'></label>
+		<span class='search-content'>四星半</span>
+		<input name='rank45' id='checkbox-2' type='checkbox' style="display: none;"/>
+		<label for='checkbox-2'></label>
+		<span class='search-content'>四星</span>
+		<input name='rank4' id='checkbox-3' type='checkbox' style="display: none;"/>
+		<label for='checkbox-3'></label>
+	</div>
+	<div class="search-line">
+		<span class="search-title">搜索范围</span>
+		<select class="search-select" id='adname' name="adname">
+			<option value='adname'>所有区</option>
+			<option value="'黄浦区'">黄浦区</option>
+			<option value="'徐汇区'">徐汇区</option>
+			<option value="'长宁区'">长宁区</option>
+			<option value="'静安区'">静安区</option>
+			<option value="'普陀区'">普陀区</option>
+			<option value="'虹口区'">虹口区</option>
+			<option value="'杨浦区'">杨浦区</option>
+			<option value="'闵行区'">闵行区</option>
+			<option value="'宝山区'">宝山区</option>
+			<option value="'嘉定区'">嘉定区</option>
+			<option value="'浦东新区'">浦东新区</option>
+			<option value="'金山区'">金山区</option>
+			<option value="'松江区'">松江区</option>
+			<option value="'青浦区'">青浦区</option>
+			<option value="'奉贤区'">奉贤区</option>
+			<option value="'崇明区'">崇明区</option>
+		</select>
+	</div>
+	<input class='search-button' id='search' onclick="showQueryData();" value='查询'/>
+	<input class='search-button' id='clear' onclick='clearQueryData();' value='清除'/>
+	</div>
+</form>
+</div>
+
+<div id="result" style="display:none;" class="scroll">
+</div>
+
+<div id='satellite-btn'>
+<div class='satellite-btn-line'>
+	<table>
+		<tr>
+			<td><span class='satellite-btn-title'>卫星图</span></td>
+			<td><div class="toggle">
+			    <input type="checkbox" style="display:none;" id="switch" onclick="sateLayer()"/>
+			    <label for="switch"></label></div>
+			</td>
+		</tr>
+	</table>
+</div>
+</div>
+
+<div id='weather' style="display:none">
+</div>
+
+</div>
+</div>
+</body>
+</html>

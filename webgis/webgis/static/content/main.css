@@ -1,0 +1,158 @@
+﻿html, body {background-color:#FFF; width:100%; margin:0px; padding:0px;
+	font-family:"Helvetica Neue", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;}
+div {margin:0; padding:0; border:0;}
+table, tr, td {margin:0; padding:0; border:0;} /* 1px solid blue*/
+
+div.main {height:100%; width:100%;}
+
+div.banner
+{
+	width:100%;
+	height:auto;
+	position:absolute;
+	padding:10px 0px;
+	background:#483D8B;
+	text-align:center;
+	letter-spacing:10px;
+}
+a.banner
+{
+	font-size:36px;
+	text-decoration:none;
+	font-weight:600;
+	color:#FFF;
+}
+a.banner:hover, a.banner:focus
+{
+	color:#E6E6FA;
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+#map {
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:68px;
+	bottom:0px;
+}
+
+div.cover-background {
+	overflow:hidden;
+	z-index:100;
+	width:auto;
+	height:auto;
+	background:rgba(255,255,255,0);
+	position:relative;
+	margin:0px;
+	padding:70px 214px;
+}
+
+/* 四个主div*/
+div.cover-content {
+	overflow:hidden;
+	z-index:200;
+	width:360px;
+	height:90px;
+	position:relative;
+	margin:40px 40px;
+	background:rgba(255,255,255,0.7);
+	text-align:center;
+	font-size:50px;
+	letter-spacing:20px;
+	font-weight:600;
+	padding:60px 40px 40px 72px;
+	border-radius:20px;
+}
+
+a.cover-content-1 {
+	text-decoration:none;
+	color:#483D8B;
+}
+a.cover-content-1:hover, a.cover-content-1:focus
+{
+	color:#FFD700;
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+a.cover-content-2 {
+	text-decoration:none;
+	color:#483D8B;
+}
+a.cover-content-2:hover, a.cover-content-2:focus
+{
+	color:#FA8072; /*智能推荐的粉红色*/
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+a.cover-content-3 {
+	text-decoration:none;
+	color:#483D8B;
+}
+a.cover-content-3:hover, a.cover-content-3:focus
+{
+	color:#CD853F; /*历史发展的棕色*/
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+a.cover-content-4 {
+	text-decoration:none;
+	color:#483D8B;
+}
+a.cover-content-4:hover, a.cover-content-4:focus
+{
+	color:#E6E6FA; /*信息查询淡紫色*/
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+/* 三个子div*/
+div.cover-subcontent {
+	overflow:hidden;
+	z-index:200;
+	width:auto;
+	height:auto;
+	position:relative;
+	background:rgba(255,255,255,0);
+	text-align:center;
+	font-size:30px;
+	letter-spacing:20px;
+	font-weight:600;
+	padding:13px 120px 13px 140px;
+}
+
+a.cover-subcontent-4-1 {
+	text-decoration:none;
+	color:#483D8B;
+}
+a.cover-subcontent-4-1:hover, a.cover-subcontent-4-1:focus
+{
+	color:#FF8C00;
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+a.cover-subcontent-4-2 {
+	text-decoration:none;
+	color:#483D8B;
+}
+a.cover-subcontent-4-2:hover, a.cover-subcontent-4-2:focus
+{
+	color:#1E90FF;
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+a.cover-subcontent-4-3 {
+	text-decoration:none;
+	color:#483D8B;
+}
+a.cover-subcontent-4-3:hover, a.cover-subcontent-4-3:focus
+{
+	color:#32CD32;
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}

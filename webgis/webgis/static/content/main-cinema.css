@@ -1,0 +1,401 @@
+﻿html, body {background-color:#FFF; width:100%; height:auto; margin:0px; padding:0px;
+	font-family:"Helvetica Neue", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;}
+div, table, tr, td {margin:0; padding:0; border:0;}
+table, tr, td {width:auto; height:auto; vertical-align:middle; text-align:center;}
+
+div.main {height:100%; width:100%;}
+
+div.banner {
+	width:100%;
+	height:38px;
+	position:absolute;
+	padding:6px 0px;
+	background:#FF8C00;
+}
+a.banner {
+	font-size:26px;
+	text-decoration:none;
+	font-weight:600;
+	color:#FFF;
+	margin-left:40px;
+	letter-spacing:10px;
+}
+a.banner:hover, a.banner:focus {
+	color:#825013;
+	/* 深橙色*/
+    /* 注意顺序，.hover .focus要在原来的css下面*/
+    cursor:pointer;
+}
+
+/* 热力图*/
+div.heatmap-button {
+	position:absolute;
+	z-index:100;
+	float:right;
+	top:9px;
+	right:40px;
+	width:auto;
+	height:auto;
+}
+input.heatmap-button {
+	width:160px;
+	height:auto;
+	color:#FFF;
+    background-color:#D2691E;
+    padding:4px 2px 4px 10px;
+    font-size: 20px;
+    font-weight:600;
+    letter-spacing:4px;
+    cursor: pointer;
+    border-radius: 4px;
+    border:0px;
+    vertical-align:center;
+    text-align:center;
+    display:block;
+    position:relative;
+    float:left;
+}
+
+#map {
+	width:100%;
+	position:absolute;
+	top:50px;
+	bottom:0px;
+}
+
+#search-div {
+	z-index:100;
+	overflow:hidden;
+	position:relative;
+	margin:20px 30px;
+	padding:6px 6px;
+	background:rgba(255,140,0,0.6);
+	width:320px;
+	height:auto;
+	border:2px solid #FFF;
+    border-radius:8px;
+}
+
+#result { /* todo: 显示搜索结果的div */
+	z-index:100;
+	overflow:auto;
+	position:relative;
+	top:285px;
+	left:30px;
+	padding:6px 6px;
+	background:rgba(255,140,0,0.6);
+	width:320px;
+	height:400px;
+	border:2px solid #FFF;
+    border-radius:8px;
+}
+
+#satellite-btn {
+	z-index:100;
+	overflow:hidden;
+	position:absolute;
+	float:right;
+	top:70px;
+	right:30px;
+	margin:0px 0px 20px 0px;
+	padding:6px 6px;
+	background:rgba(255,255,255,1);
+	width:120px;
+	height:auto;
+	border:2px solid #FFF;
+    border-radius:8px;
+}
+
+#weather {
+	z-index:100;
+	overflow:hidden;
+	position:absolute;
+	float:right;
+	top:135px;
+	right:30px;
+	padding:6px 6px;
+	background:rgba(255,140,0,0.6);
+	width:120px;
+	height:auto;
+	border:2px solid #FFF;
+    border-radius:8px;
+}
+
+/* 搜索框div中每一行的div*/
+div.search-line {
+	width:100%;
+	height:26px;
+	position:relative;
+	padding:2px 0px;
+	margin:4px 0px;
+}
+/* 搜索框div中搜索项（大类）的css和具体内容（小项）的css*/
+span.search-title {
+	margin:0px 5px;
+	font-size:16px;
+	font-weight:600;
+	vertical-align:middle;
+	color:#FFF;
+}
+span.search-content {
+	margin-left:8px;
+	margin-right:0px;
+	font-size:14px;
+	font-weight:400;
+	vertical-align:middle;
+	color:#FFF;
+}
+/* 数字输入框*/
+input.search-text {
+	height:16px;
+	width:30px;
+	color:#825013;
+	font-size:16px;
+	border:1px solid #fff;
+	border-radius: 4px;
+}
+/* 下拉选择框*/
+select.search-select {
+	height:23px;
+	width:200px;
+	background:#ffffff;
+	color:#825013;
+    border:2px solid #fff;
+    padding:0px 10px;
+    border-radius: 4px;
+    display: inline-block; /*是行内元素*/
+    vertical-align: middle;
+	 /* float: left; */
+	margin-left:8px;
+	background:url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+	background-position:right;
+	background-repeat: no-repeat;
+	/* 鼠标触碰光标变手势 */
+	cursor: pointer;
+	/* 清除默认样式 */
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+/* 两个按钮，单独的颜色*/
+input.search-button {
+	width:60px;
+	height:auto;
+	color:#FFF;
+    background-color:#D2691E;
+    padding:3px 8px 4px 8px;
+    margin:6px 10px;
+    font-size: 16px;
+    font-weight:500;
+    cursor: pointer;
+    border-radius: 4px;
+    border:0px;
+    vertical-align:center;
+    text-align:center;
+    display:block;
+    position:relative;
+    float:left;
+}
+
+/* 结果框中每个信息箱的div*/
+div.infobox {
+	width:auto;
+	height:auto;
+	margin:4px;
+	padding:8px;
+	background:rgba(255,255,255,0.7);
+	border-radius:8px;
+}
+/* 结果框div中每一行的div*/
+div.result-line {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:0px;
+	margin:4px 0px;
+}
+/* 结果div中搜索项（大类）的css和具体内容（小项）的css*/
+span.result-title {
+	margin:0px;
+	font-size:16px;
+	font-weight:600;
+	vertical-align:middle;
+	color:#825013;
+}
+span.result-content {
+	font-size:14px;
+	font-weight:400;
+	vertical-align:middle;
+	color:#825013;
+}
+
+div.weather-line {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:0px;
+	margin:4px 0px;
+}
+span.weather-title {
+	margin:0px;
+	padding:0px 4px;
+	font-size:16px;
+	font-weight:600;
+	vertical-align:middle;
+	color:#FFF;
+}
+span.weather-content {
+	margin:0px;
+	padding:0px 4px;
+	font-size:14px;
+	font-weight:400;
+	vertical-align:middle;
+	color:#FFF;
+}
+
+div.satellite-btn-line {
+	width:100%;
+	height:auto;
+	position:relative;
+	padding:0px;
+	margin:4px 0px;
+}
+span.satellite-btn-title {
+	margin:0px;
+	padding:0px 4px;
+	font-size:16px;
+	font-weight:600;
+	vertical-align:middle;
+	color:#FF8C00;
+}
+
+
+
+/* 以下都是参考的css，用来美化*/
+
+
+/* 卫星图切换按钮*/
+.toggle{
+    width:54px;
+    height:25px;
+    background:#F5F5F5;
+    position: relative;
+    border-radius: 30px;
+    box-shadow: inset 0px 4px 4px rgba(0,0,0,0.2),0px 1px 0px rgba(255,255,255,0.2);
+}
+.toggle:after{
+    content: '关';
+    color: #000000;
+    position: absolute;
+    top:2px;
+    right:6px;
+    z-index:0;
+    font-size:16px;
+	font-weight:600;
+}
+.toggle:before{
+    content: '开';
+    color: #FF8C00;
+    position: absolute;
+    top:2px;
+    left:6px;
+    z-index:0;
+    font-size:16px;
+	font-weight:600;
+}
+.toggle label{
+    display: block;
+    width:20px;
+    height:20px;
+    cursor: pointer;
+    position: absolute;
+    top:3px;
+    left:4px;
+    z-index: 1;
+    background: #FFFFFF;
+    border-radius:20px;
+    transition: all 0.4s ease;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+}
+.toggle input[type=checkbox]{
+    visibility: hidden;
+}
+.toggle input:checked + label{
+    left: 30px;
+}
+
+
+/* 好看的滚动条 来源: https://www.jianshu.com/p/c2addb233acd*/
+.scroll::-webkit-scrollbar {
+/*滚动条整体样式*/
+width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+height: 1px;
+}
+.scroll::-webkit-scrollbar-thumb {
+/*滚动条里面小方块*/
+border-radius: 10px;
+background   : rgba(255,255,255,1);
+}
+.scroll::-webkit-scrollbar-track {
+/*滚动条里面轨道*/
+box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+border-radius: 10px;
+background   : rgba(255,255,255,0.7);
+}
+
+
+/* 显示出5颗星的CSS 进行了一些（颜色）修改 https://www.cnblogs.com/sxs161028/p/7249966.html*/
+.cleanfloat::after{display: block; clear: both; content:""; visibility: hidden; height: 0;} 
+.starFive span {float: left;font-size: 15px;
+    text-align: center;color: #FFF;width: 15px;
+    margin-right: 0px;position: relative;overflow: hidden;white-space: pre;
+ }
+.starFive span:before {position: absolute;
+    left: 0;top: 0;display: block;width: 50%;
+    content: attr(data-content);overflow: hidden;color: #825013;
+}
+.sF span:before{width: 50%;}
+.starFive .org_star {color: #825013;}
+
+
+/* 彩色的复选框！*/
+input[type="checkbox"] + label {
+    cursor: pointer;
+    font-size: 1em;
+}
+[id^="checkbox-"] + label {
+    background-color: #ffffff;
+    border:0px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-block; /*是行内元素*/
+    vertical-align: middle;
+}
+[id^="checkbox-"] + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+[id="checkbox-1"]:checked + label {
+    background-color: #F47164;
+    border: 1px solid #F47164;
+}
+[id="checkbox-2"]:checked + label {
+    background-color: #84CBC5;
+    border: 1px solid #84CBC5;
+}
+[id="checkbox-3"]:checked + label {
+    background-color: #F8D25D;
+    border: 1px solid #F8D25D;
+}
+[id="checkbox-4"]:checked + label {
+    background-color: #9ACD32;
+    border: 1px solid #9ACD32;
+}
+[id="checkbox-5"]:checked + label {
+    background-color: #B0C4DE;
+    border: 1px solid #B0C4DE;
+}
+[id="checkbox-6"]:checked + label {
+    background-color: #CD853F;
+    border: 1px solid #CD853F;
+}

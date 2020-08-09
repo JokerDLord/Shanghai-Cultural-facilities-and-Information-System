@@ -1,0 +1,52 @@
+﻿html, body {background-color:#FFF; width:100%; height:100%; margin:0px; padding:0px;
+	font-family:"Helvetica Neue", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;}
+div {margin:0; padding:0; border:0;}
+table, tr, td {margin:0; padding:0; border:0;} /* 1px solid blue*/
+
+div.main {height:100%; width:100%;}
+
+div.background {
+    height:100%;
+    width:100%;
+    overflow:hidden;
+	position:relative;;
+	top:0;
+	bottom:0;
+    background:url('cover-bg.jpg');
+    background-repeat:no-repeat;
+    background-size:100% auto;
+}
+
+div.button-box {
+    position:absolute;
+    top:60%;
+    left:10%;
+    width:80%;
+    height:auto;
+    background:rgba(0,0,0,0);
+    text-align: center;
+}
+
+div.button {
+    position:relative;
+    margin:40px auto;
+    width:auto;
+    height:auto;
+    display: inline-block;
+}
+
+a.button {
+    font-family:'阿里汉仪智能黑体';
+    font-size:100px;
+    color:rgba(255,255,255,0.8);
+    display: inline-block;
+    text-decoration:none;
+}
+
+a.button:hover, a.button:focus {
+    font-family:'阿里汉仪智能黑体';
+    font-size:100px;
+    color:rgba(255,255,255,1);
+    display: inline-block;
+    text-decoration:none;
+}

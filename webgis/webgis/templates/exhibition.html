@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>上海市文娱设施与信息系统</title>
+<link rel="stylesheet" type="text/css" href="/static/content/main-exhibition.css" />
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=277c704f70f5df0b739c5f5c4b77cff4"></script>
+<script type="text/javascript" src="/static/scripts/jquery-1.10.2.min.js"></script>
+<!-- 为了让搜索的结果能就在这一页显示 必须用到ajax要是想用AJAX来提交表单 就只能引入jQuery了 -->
+<script type="text/javascript" src="/static/scripts/main-exhibition.js"></script>
+</head>
+
+<body onLoad="onLoad()">
+<div class='main'>
+
+<div class="banner">
+    <a href='./index' class="banner">上海市文娱设施与信息系统·展览馆</a>
+    <div class='heatmap-button'>
+    	<input class='heatmap-button' id='heatmap-btn' onclick="window.open('https://maplab.amap.com/share/mapv/fe662086f48c9d6f3775437aa217d1c1')" value='打开热力图'/>
+    </div>
+</div>
+
+<div id="map">
+
+<div id="search-div">
+<form method='get' id="query">
+	<div class="search-line">
+		<span class="search-title">展馆类型</span>
+		<span class='search-content'>展览馆</span>
+		<input name='展览馆' id='checkbox-1' type='checkbox' style="display: none;"/>
+		<label for='checkbox-1'></label>
+		<span class='search-content'>图书馆</span>
+		<input name='图书馆' id='checkbox-2' type='checkbox' style="display: none;"/>
+		<label for='checkbox-2'></label>
+		<span class='search-content'>天文馆</span>
+		<input name='天文馆' id='checkbox-3' type='checkbox' style="display: none;"/>
+		<label for='checkbox-3'></label>
+	</div>
+	<div class="search-line">
+		<span class="search-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<span class='search-content'>水族馆</span>
+		<input name='水族馆' id='checkbox-4' type='checkbox' style="display: none;"/>
+		<label for='checkbox-4'></label>
+		<span class='search-content'>美术馆</span>
+		<input name='美术馆' id='checkbox-5' type='checkbox' style="display: none;"/>
+		<label for='checkbox-5'></label>
+		<span class='search-content'>科技馆</span>
+		<input name='科技馆' id='checkbox-6' type='checkbox' style="display: none;"/>
+		<label for='checkbox-6'></label>
+	</div>
+	<div class="search-line">
+		<span class="search-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<span class='search-content'>纪念馆</span>
+		<input name='纪念馆' id='checkbox-7' type='checkbox' style="display: none;"/>
+		<label for='checkbox-7'></label>
+		<span class='search-content'>博物馆</span>
+		<input name='博物馆' id='checkbox-8' type='checkbox' style="display: none;"/>
+		<label for='checkbox-8'></label>
+	</div>
+	<div class="search-line">
+		<span class="search-title">搜索范围</span>
+		<select class="search-select" id='adname' name="adname">
+			<option value='adname'>所有区</option>
+			<option value="'黄浦区'">黄浦区</option>
+			<option value="'徐汇区'">徐汇区</option>
+			<option value="'长宁区'">长宁区</option>
+			<option value="'静安区'">静安区</option>
+			<option value="'普陀区'">普陀区</option>
+			<option value="'虹口区'">虹口区</option>
+			<option value="'杨浦区'">杨浦区</option>
+			<option value="'闵行区'">闵行区</option>
+			<option value="'宝山区'">宝山区</option>
+			<option value="'嘉定区'">嘉定区</option>
+			<option value="'浦东新区'">浦东新区</option>
+			<option value="'金山区'">金山区</option>
+			<option value="'松江区'">松江区</option>
+			<option value="'青浦区'">青浦区</option>
+			<option value="'奉贤区'">奉贤区</option>
+			<option value="'崇明区'">崇明区</option>
+		</select>
+	</div>
+	<input class='search-button' id='search' onclick="showQueryData();" value='查询'/>
+	<input class='search-button' id='clear' onclick='clearQueryData();' value='清除'/>
+	</div>
+</form>
+</div>
+
+<div id="result" style="display:none;" class="scroll">
+</div>
+
+<div id='satellite-btn'>
+<div class='satellite-btn-line'>
+	<table>
+		<tr>
+			<td><span class='satellite-btn-title'>卫星图</span></td>
+			<td><div class="toggle">
+			    <input type="checkbox" style="display:none;" id="switch" onclick="sateLayer()"/>
+			    <label for="switch"></label></div>
+			</td>
+		</tr>
+	</table>
+</div>
+</div>
+
+<div id='weather' style="display:none">
+</div>
+
+</div>
+</div>
+</body>
+</html>

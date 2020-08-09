@@ -1,0 +1,51 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "490811",
+      "name": "wifi",
+      "font_class": "wifi",
+      "unicode": "eda9",
+      "unicode_decimal": 60841
+    },
+    {
+      "icon_id": "3659156",
+      "name": "停车",
+      "font_class": "tingche",
+      "unicode": "e8f8",
+      "unicode_decimal": 59640
+    },
+    {
+      "icon_id": "6858480",
+      "name": "3D",
+      "font_class": "D",
+      "unicode": "e6cd",
+      "unicode_decimal": 59085
+    },
+    {
+      "icon_id": "8288816",
+      "name": "VIP",
+      "font_class": "VIP",
+      "unicode": "e83d",
+      "unicode_decimal": 59453
+    },
+    {
+      "icon_id": "8555162",
+      "name": "4k-line",
+      "font_class": "k-line",
+      "unicode": "e6f7",
+      "unicode_decimal": 59127
+    },
+    {
+      "icon_id": "11372641",
+      "name": "3D眼镜",
+      "font_class": "Dyanjing",
+      "unicode": "e8ab",
+      "unicode_decimal": 59563
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>上海市文娱设施与信息系统</title>
+<link rel="stylesheet" type="text/css" href="../static/content/main-recommend.css" />
+<!-- 引入vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/static/element-ui/index.css">
+<script type="text/javascript" src="/static/element-ui/index.js"></script>
+
+<script type="text/javascript" src="../static/scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../static/scripts/echarts.min.js"></script>
+<script type="text/javascript" src="../static/scripts/echarts-wordcloud.min.js"></script>
+<script type="text/javascript" src="../static/scripts/roma.js"></script>
+<script type="text/javascript" src="../static/scripts/iconfont.js"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=138c9c1815a1467ccf483d25f26cb9a2&plugin=AMap.Driving,AMap.Transfer,AMap.Riding,AMap.Walking,AMap.Autocomplete"></script>
+<script type="text/javascript" src="../static/scripts/main-recommend.js"></script>
+</head>
+
+<body onLoad="onLoad()">
+<div class='main'>
+
+<div class="banner">
+    <a href='./index' class="banner">上海市文娱设施与信息系统·智能推荐</a>
+</div>
+
+<div class="cover-background">
+
+<div class='select-div'>
+<form method='get' id="select">
+<table>
+	<tr>
+	<td>
+	<div class='select-content'>
+		<span class='select-content'>性别：</span>
+        <input class="sel" type="radio" name="gender" value="1" id="gender01">
+        <label class="sel" for="gender01">男</label>
+        <input class="sel" type="radio" name="gender" value="2" id="gender02">
+        <label class="sel" for="gender02">女</label>
+    </div>
+	</td>
+	<td>
+ 	<div class="select-content">
+		<span class="select-content" style="position:relative;top:3.2px;">常住地：</span>
+		<select class="select-down" name="adname">
+			<option value='黄浦区'>黄浦区</option>
+			<option value='徐汇区'>徐汇区</option>
+			<option value='长宁区'>长宁区</option>
+			<option value='静安区'>静安区</option>
+			<option value='普陀区'>普陀区</option>
+			<option value='虹口区'>虹口区</option>
+			<option value='杨浦区'>杨浦区</option>
+			<option value='闵行区'>闵行区</option>
+			<option value='宝山区'>宝山区</option>
+			<option value='嘉定区'>嘉定区</option>
+			<option value='浦东新区'>浦东新区</option>
+			<option value='金山区'>金山区</option>
+			<option value='松江区'>松江区</option>
+			<option value='青浦区'>青浦区</option>
+			<option value='奉贤区'>奉贤区</option>
+			<option value='崇明区'>崇明区</option>
+		</select>
+	</div>
+	</td>
+	<td>
+    <div class='select-content'>
+		<span class='select-content'>年龄：</span>
+        <input class="sel" type="radio" name="age" value="1" id="age01">
+        <label class="sel" for="age01">50后</label>
+        <input class="sel" type="radio" name="age" value="2" id="age02">
+        <label class="sel" for="age02">60后</label>
+        <input class="sel" type="radio" name="age" value="3" id="age03">
+        <label class="sel" for="age03">70后</label>
+        <input class="sel" type="radio" name="age" value="4" id="age04">
+        <label class="sel" for="age04">80后</label>
+        <input class="sel" type="radio" name="age" value="5" id="age05">
+        <label class="sel" for="age05">90后</label>
+        <input class="sel" type="radio" name="age" value="6" id="age06">
+        <label class="sel" for="age06">00后</label>
+        <input class="sel" type="radio" name="age" value="7" id="age07">
+        <label class="sel" for="age07">10后</label>
+    </div>
+	</td>
+	</tr>
+
+	<tr>
+	<td colspan="2">
+    <div class='select-content'>
+		<span class='select-content'>出行人数：</span>
+        <input class="sel" type="radio" name="num" value="1" id="num01">
+        <label class="sel" for="num01">1人</label>
+        <input class="sel" type="radio" name="num" value="2" id="num02">
+        <label class="sel" for="num02">2~4人</label>
+        <input class="sel" type="radio" name="num" value="3" id="num03">
+        <label class="sel" for="num03">5~9人</label>
+        <input class="sel" type="radio" name="num" value="4" id="num04">
+        <label class="sel" for="num04">10人及以上</label>
+    </div>
+	</td>
+	<td>
+    <div class='select-content'>
+		<span class='select-content'>主要出行方式：</span>
+        <input class="sel" type="radio" name="transport" value="1" id="transport01">
+        <label class="sel" for="transport01">私家车</label>
+        <input class="sel" type="radio" name="transport" value="2" id="transport02">
+        <label class="sel" for="transport02">出租车/网约车</label>
+        <input class="sel" type="radio" name="transport" value="3" id="transport03">
+        <label class="sel" for="transport03">地铁</label>
+        <input class="sel" type="radio" name="transport" value="4" id="transport04">
+        <label class="sel" for="transport04">公交</label>
+        <input class="sel" type="radio" name="transport" value="5" id="transport05">
+        <label class="sel" for="transport05">电动车</label>
+        <input class="sel" type="radio" name="transport" value="6" id="transport06">
+        <label class="sel" for="transport06">自行车</label>
+        <input class="sel" type="radio" name="transport" value="7" id="transport07">
+        <label class="sel" for="transport07">共享单车</label>
+        <input class="sel" type="radio" name="transport" value="8" id="transport08">
+        <label class="sel" for="transport08">步行</label>
+    </div>
+	</td>
+	</tr>
+
+	<tr>
+	<td colspan="3">
+    <div class='select-content'>
+		<span class='select-content'>休闲方式：</span>
+		<input class="sel" type="checkbox" name="entertainment01" value="1" id="entertainment01">
+        <label class="sel" for="entertainment01">阅读</label>
+        <input class="sel" type="checkbox" name="entertainment02" value="1" id="entertainment02">
+        <label class="sel" for="entertainment02">绘画</label>
+        <input class="sel" type="checkbox" name="entertainment03" value="1" id="entertainment03">
+        <label class="sel" for="entertainment03">撸猫</label>
+        <input class="sel" type="checkbox" name="entertainment04" value="1" id="entertainment04">
+        <label class="sel" for="entertainment04">听歌</label>
+        <input class="sel" type="checkbox" name="entertainment05" value="1" id="entertainment05">
+        <label class="sel" for="entertainment05">美食</label>
+        <input class="sel" type="checkbox" name="entertainment06" value="1" id="entertainment06">
+        <label class="sel" for="entertainment06">摄影</label>
+        <input class="sel" type="checkbox" name="entertainment07" value="1" id="entertainment07">
+        <label class="sel" for="entertainment07">看电影/追剧</label>
+        <input class="sel" type="checkbox" name="entertainment08" value="1" id="entertainment08">
+        <label class="sel" for="entertainment08">散步/逛公园</label>
+        <input class="sel" type="checkbox" name="entertainment09" value="1" id="entertainment09">
+        <label class="sel" for="entertainment09">健身</label>
+        <input class="sel" type="checkbox" name="entertainment10" value="1" id="entertainment10">
+        <label class="sel" for="entertainment10">跳舞</label>
+        <input class="sel" type="checkbox" name="entertainment11" value="1" id="entertainment11">
+        <label class="sel" for="entertainment11">打游戏</label>
+        <input class="sel" type="checkbox" name="entertainment12" value="1" id="entertainment12">
+        <label class="sel" for="entertainment12">聚会</label>
+        <input class="sel" type="checkbox" name="entertainment13" value="1" id="entertainment13">
+        <label class="sel" for="entertainment13">旅游</label>
+        <input class="sel" type="checkbox" name="entertainment14" value="1" id="entertainment14">
+        <label class="sel" for="entertainment14">逛展</label>
+        <input class="sel" type="checkbox" name="entertainment15" value="1" id="entertainment15">
+        <label class="sel" for="entertainment15">购物</label>
+        <input class="sel" type="checkbox" name="entertainment16" value="1" id="entertainment16">
+        <label class="sel" for="entertainment16">唱K</label>
+    </div>
+	</td>
+	</tr>
+
+	<tr>
+	<td colspan="3">	
+    <div class='select-content'>
+		<span class='select-content'>如何形容你自己：</span>
+		<input class="sel" type="checkbox" name="tag01" value="1" id="tag01">
+        <label class="sel" for="tag01">工作狂</label>
+        <input class="sel" type="checkbox" name="tag02" value="1" id="tag02">
+        <label class="sel" for="tag02">御宅族</label>
+        <input class="sel" type="checkbox" name="tag03" value="1" id="tag03">
+        <label class="sel" for="tag03">佛系青年</label>
+        <input class="sel" type="checkbox" name="tag04" value="1" id="tag04">
+        <label class="sel" for="tag04">理性思考</label>
+        <input class="sel" type="checkbox" name="tag05" value="1" id="tag05">
+        <label class="sel" for="tag05">安逸闲适</label>
+        <input class="sel" type="checkbox" name="tag06" value="1" id="tag06">
+        <label class="sel" for="tag06">文艺青年</label>
+        <input class="sel" type="checkbox" name="tag07" value="1" id="tag07">
+        <label class="sel" for="tag07">电影发烧友</label>
+        <input class="sel" type="checkbox" name="tag08" value="1" id="tag08">
+        <label class="sel" for="tag08">浪漫主义</label>
+        <input class="sel" type="checkbox" name="tag09" value="1" id="tag09">
+        <label class="sel" for="tag09">向往自然</label>
+        <input class="sel" type="checkbox" name="tag10" value="1" id="tag10">
+        <label class="sel" for="tag10">崇尚自由</label>
+        <input class="sel" type="checkbox" name="tag11" value="1" id="tag11">
+        <label class="sel" for="tag11">热恋中</label>
+        <input class="sel" type="checkbox" name="tag12" value="1" id="tag12">
+        <label class="sel" for="tag12">K歌达人</label>
+    </div>
+	</td>
+	</tr>
+
+	<tr>
+	<td colspan="3" style="text-align:center;">
+    <div class='select-content'>
+    	<input type="button" class="select-button" value="生成休闲出行攻略" onclick="showAnalysisData();" id="analysis"/>
+    	<input type="button" class="select-button" value="下载休闲出行攻略" onclick="downloadPic();" id="download"/>
+    </div>
+	</td>
+	</tr>
+
+</table>
+</form>
+</div>
+
+<div id="result" style="display: none;">
+	<el-carousel :interval="-1" trigger="click" height="420px">
+		<el-carousel-item>
+			<div id='result-box-1' class="result-box">
+                <div class='result-content-title'>
+                    <span id='result-box-1-title' class='result-title'></span>
+                </div>
+                <div id='result-box-1-left'></div>
+                <div id='result-box-1-right'></div>
+            </div>
+		</el-carousel-item>
+		<el-carousel-item>
+			<div id='result-box-2' class="result-box">
+                <div id='result-box-2-left'>
+                    <div class='result-content-top1'>
+                        <span class='result-line'>系统为您推荐的第一个地点是：</span>
+                    </div>
+                    <div class='result-content-middle1'>
+                        <span id='place1-name' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle1'>
+                        <span id='place1-address' class='result-line'></span>
+                    </div>
+                    <div class='result-content-top1'>
+                        <div class='input-box-out'>
+                            <div class='input-box-inner'>
+                                <span class='result-line'>请输入出发地</span>
+                            </div>
+                            <input id='input1' class='input-box-input' type="text">
+                        </div>
+                    </div>
+                </div>
+                <div id='result-box-2-right'></div>
+            </div>
+		</el-carousel-item>
+		<el-carousel-item>
+			<div id='result-box-3' class="result-box">
+                <div id='result-box-3-left'></div>
+                <div id='result-box-3-right'>
+                    <div class='result-content-top1'>
+                        <span class='result-line'>系统为您推荐的第二个地点是：</span>
+                    </div>
+                    <div class='result-content-middle1'>
+                        <span id='place2-name' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle1'>
+                        <span id='place2-address' class='result-line'></span>
+                    </div>
+                    <div class='result-content-top1'>
+                        <div class='input-box-out'>
+                            <div class='input-box-inner'>
+                                <span class='result-line'>请输入出发地</span>
+                            </div>
+                            <input id='input2' class='input-box-input' type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</el-carousel-item>
+		<el-carousel-item>
+			<div id='result-box-4' class="result-box">
+                <div id='result-box-4-left'>
+                    <div class='result-content-top2'>
+                        <span class='result-line'>今日天气预报：</span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='date1' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='weather1' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='temp1' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='windir1' class='result-line'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='windpower1' class='result-line'></span>
+                    </div>
+                </div>
+                <div id='result-box-4-right'>
+                    <div class='result-content-top2'>
+                        <span class='result-line'>明日天气预报：</span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='date2' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='weather2' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='temp2' class='result-subtitle'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='windir2' class='result-line'></span>
+                    </div>
+                    <div class='result-content-middle2'>
+                        <span id='windpower2' class='result-line'></span>
+                    </div>
+                </div>
+            </div>
+
+		</el-carousel-item>
+	</el-carousel>
+</div>
+
+</div>
+
+
+</div>
+</body>
+</html>
